@@ -14,16 +14,14 @@ python $SCRIPT_DIR/run_qa.py \
   --max_seq_length 512 \
   --load_best_model_at_end \
   --metric_for_best_model f1 \
-  --evaluation_strategy steps \
-  --overwrite_output_dir \
-  --output_dir $SCRIPT_DIR/roberta-base-ca-cased-qa
+  --evaluation_strategy epoch \
+  --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad-ca"
 
-## Test the previous fine-tuned model on XQuAD
-#python $SCRIPT_DIR/run_qa.py \
-#  --model_name_or_path "$SCRIPT_DIR/roberta-base-ca-cased-qa" \
-#  --dataset_name "bsc/ViquiQuAD" \
-#  --do_predict \
-#  --per_device_train_batch_size 8 \
-#  --max_seq_length 512 \
-#  --overwrite_output_dir \
-#  --output_dir $SCRIPT_DIR/roberta-base-ca-cased-qa
+# Test the previous fine-tuned model on XQuAD
+python $SCRIPT_DIR/run_qa.py \
+  --model_name_or_path "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad-ca" \
+  --dataset_name "bsc/xquad-ca" \
+  --do_predict \
+  --per_device_train_batch_size 8 \
+  --max_seq_length 512 \
+  --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-qa/xquad-ca"
