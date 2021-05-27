@@ -15,6 +15,7 @@ python $SCRIPT_DIR/run_qa.py \
   --load_best_model_at_end \
   --metric_for_best_model f1 \
   --evaluation_strategy epoch \
+  --seed 1 \
   --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad-ca"
 
 # Test the previous fine-tuned model on XQuAD
@@ -24,4 +25,5 @@ python $SCRIPT_DIR/run_qa.py \
   --do_predict \
   --per_device_train_batch_size 8 \
   --max_seq_length 512 \
+  --seed 1 \
   --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-qa/xquad-ca"
