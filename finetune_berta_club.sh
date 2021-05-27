@@ -6,4 +6,4 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Start fine-tuning and evaluation on CLUB tasks"
 # Question-answering
 echo "Task: question-answering on ViquiQuAD-ca and XQuAD-ca"
-bash $SCRIPT_DIR/src/finetuning/qa/run_qa.sh | tee -a $SCRIPT_DIR/finetune_berta_club.log
+bash $SCRIPT_DIR/src/finetuning/qa/run_qa.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
