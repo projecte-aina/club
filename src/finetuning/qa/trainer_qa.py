@@ -53,9 +53,11 @@ class QuestionAnsweringTrainer(Trainer):
             self.compute_metrics = compute_metrics
 
         if self.post_process_function is not None and self.compute_metrics is not None:
-            eval_preds = self.post_process_function(eval_examples, eval_dataset, output.predictions)
+            eval_preds = self.post_process_function(eval_examples, eval_dataset, output.predictions, 'eval')
             metrics = self.compute_metrics(eval_preds)
-
+            # Add "eval_" prefix to the metrics to prevent error in trainer.py at line 1511
+            metrics['eval_f1'] = metrics.pop('f1')
+            metrics['eval_exact_match'] = metrics.pop('exact_match')
             self.log(metrics)
         else:
             metrics = {}
@@ -91,5 +93,7 @@ class QuestionAnsweringTrainer(Trainer):
 
         predictions = self.post_process_function(predict_examples, predict_dataset, output.predictions, "predict")
         metrics = self.compute_metrics(predictions)
+        metrics['predict_f1'] = metrics.pop('f1')
+        metrics['predict_exact_match'] = metrics.pop('exact_match')
 
         return PredictionOutput(predictions=predictions.predictions, label_ids=predictions.label_ids, metrics=metrics)

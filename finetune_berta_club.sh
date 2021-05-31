@@ -24,10 +24,10 @@ echo "Task: Text Classification"
 bash $SCRIPT_DIR/src/finetuning/tc/run_tc.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
 echo -e "End TC\n"
 
-# Question-answering
-echo "Task: Question-answering"
-bash $SCRIPT_DIR/src/finetuning/qa/run_qa.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
-echo -e "End QA\n"
+## Question-answering
+#echo "Task: Question-answering"
+#bash $SCRIPT_DIR/src/finetuning/qa/run_qa.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
+#echo -e "End QA\n"
 
 # TODO: add python script to collect the results in a json or table.
 echo "Done"
