@@ -9,3 +9,9 @@ bash finetune_berta_club.sh
 You can easily adapt the scripts to your custom Huggingface tokenizers and models.
 
 # BERTa
+
+See https://huggingface.co/bsc/roberta-base-ca-cased
+
+# Citation
+
+TODO
