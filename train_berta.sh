@@ -1,7 +1,4 @@
 #!/bin/bash
-#SBATCH --job-name=roberta_base_ca_no_decon
-#SBATCH --output=slurm_logs/roberta_base_en_ca_no_decon_%j.out
-#SBATCH --error=slurm_logs/roberta_base_en_ca_no_decon_%j.err
 #SBATCH --nodes=4
 #SBATCH --wait
 #SBATCH --wait-all-nodes=1
