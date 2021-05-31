@@ -484,19 +484,11 @@ def main():
     if training_args.do_eval:
         logger.info("*** Evaluate ***")
 
-        # Loop to handle MNLI double evaluation (matched, mis-matched)
-        tasks = [data_args.task_name]
         # force evaluation on test set
-        if data_args.eval_on_test:
-            eval_datasets = [predict_dataset]
-        else:
-            eval_datasets = [eval_dataset]
+        eval_datasets = [eval_dataset, predict_dataset]
+        types = ['eval', 'predict']
 
-        if data_args.task_name == "mnli":
-            tasks.append("mnli-mm")
-            eval_datasets.append(datasets["validation_mismatched"])
-
-        for eval_dataset, task in zip(eval_datasets, tasks):
+        for eval_dataset, type in zip(eval_datasets, types):
             metrics = trainer.evaluate(eval_dataset=eval_dataset)
 
             max_eval_samples = (
@@ -504,8 +496,9 @@ def main():
             )
             metrics["eval_samples"] = min(max_eval_samples, len(eval_dataset))
 
-            trainer.log_metrics("eval", metrics)
-            trainer.save_metrics("eval", metrics)
+            trainer.log_metrics(type, metrics)
+            trainer.save_metrics(type, metrics)
+
 
     if training_args.do_predict:
         logger.info("*** Predict ***")
@@ -523,7 +516,7 @@ def main():
             predictions = trainer.predict(predict_dataset, metric_key_prefix="predict").predictions
             predictions = np.squeeze(predictions) if is_regression else np.argmax(predictions, axis=1)
 
-            output_predict_file = os.path.join(training_args.output_dir, f"predict_results.txt")
+            output_predict_file = os.path.join(training_args.output_dir, f"predictions.txt")
             if trainer.is_world_process_zero():
                 with open(output_predict_file, "w") as writer:
                     logger.info(f"***** Predict results {task} *****")
