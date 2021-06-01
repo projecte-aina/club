@@ -7,7 +7,6 @@ python $SCRIPT_DIR/run_sts.py \
   --dataset_name "bsc/sts-ca" \
   --do_train \
   --do_eval \
-  --eval_on_test \
   --do_predict \
   --per_device_train_batch_size 4 \
   --gradient_accumulation_steps 2 \

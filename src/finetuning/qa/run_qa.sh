@@ -16,28 +16,28 @@ python $SCRIPT_DIR/run_qa.py \
   --metric_for_best_model f1 \
   --evaluation_strategy epoch \
   --seed 1 \
-  --logging_dir "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/viquiquad/tb" \
-  --output_dir "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/viquiquad"
+  --logging_dir "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad/tb" \
+  --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad"
 
 # Test the previous fine-tuned model on XQuAD
 python $SCRIPT_DIR/run_qa.py \
-  --model_name_or_path "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/viquiquad" \
+  --model_name_or_path "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad" \
   --dataset_name "bsc/xquad-ca" \
   --do_predict \
   --per_device_train_batch_size 8 \
   --max_seq_length 512 \
   --seed 1 \
-  --output_dir "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/xquad-ca"
+  --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-qa/xquad-ca"
 
 # Evaluate with the script "mlqa_evaluation_ca.py" script
 python $SCRIPT_DIR/mlqa_evaluation_ca.py \
   --testset $SCRIPT_DIR/viquiquad-test.json \
-  --prediction_file "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/viquiquad/predict_predictions.json" \
+  --prediction_file "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad/predict_predictions.json" \
   --answer_language "ca" \
-  > "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/viquiquad/predict_results.json"
+  > "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad/predict_results.json"
 
 python $SCRIPT_DIR/mlqa_evaluation_ca.py \
   --testset $SCRIPT_DIR/xquad-ca.json \
-  --prediction_file "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/xquad-ca/predict_predictions.json" \
+  --prediction_file "$SCRIPT_DIR/roberta-base-ca-cased-qa/xquad-ca/predict_predictions.json" \
   --answer_language "ca" \
-  > "$SCRIPT_DIR/debug/roberta-base-ca-cased-qa/xquad-ca/predict_results.json"
+  > "$SCRIPT_DIR/roberta-base-ca-cased-qa/xquad-ca/predict_results.json"

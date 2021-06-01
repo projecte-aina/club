@@ -71,10 +71,6 @@ class DataTrainingArguments:
     into argparse arguments to be able to specify them on
     the command line.
     """
-    eval_on_test:  bool = field(
-        default=False,
-        metadata={"help": "Evaluate on test set by computing scores"})
-
     task_name: Optional[str] = field(
         default=None,
         metadata={"help": "The name of the task to train on: " + ", ".join(task_to_keys.keys())},

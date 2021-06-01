@@ -15,4 +15,5 @@ python $SCRIPT_DIR/run_ner.py \
   --metric_for_best_model f1 \
   --evaluation_strategy epoch \
   --seed 1 \
+  --logging_dir "$SCRIPT_DIR/roberta-base-ca-cased-ner/tb" \
   --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-ner"
