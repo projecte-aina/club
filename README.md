@@ -147,7 +147,7 @@ To fine-tune and evaluate on CLUB, run the following commands:
 
 ## Fine-tune and evaluate on CLUB
 To fine-tune and evaluate BERTa on the CLUB datasets, run the following commands:
->>>>>>> bd8cc630ed21f1ca9831f6d13fe2a53811780751
+
 ```
 bash setup_venv.sh
 bash finetune_berta_club.sh
@@ -161,15 +161,10 @@ The official results obtained are:
 
 
 | Task        | NER (F1)      | POS (F1)   | STS (Pearson)   | TC (accuracy) | QA (ViquiQuAD) (F1/EM)  | QA (XQuAD) (F1/EM) | 
-
 | ------------|:-------------:| -----:|:------|:-------|:------|:----|
-
 | BERTa       | **88.13** | **98.97** | **79.73** | **74.16** | **86.97/72.29** | **68.89/48.87** |
-
 | mBERT       | 86.38 | 98.82 | 76.34 | 70.56 | 86.97/72.22 | 67.15/46.51 |
-
 | XLM-RoBERTa | 87.66 | 98.89 | 75.40 | 71.68 | 85.50/70.47 | 67.10/46.42 |
-
 | WikiBERT-ca | 77.66 | 97.60 | 77.18 | 73.22 | 85.45/70.75 | 65.21/36.60 |
 
 
