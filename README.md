@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# BERTa: Catalan Language Model
-
 # BERTa: RoBERTa-based Catalan language model
 
 ## Model description
@@ -145,7 +142,7 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
 ## Fine-tuning and evaluation
 The fine-tuning scripts for the downstream tasks are based on the HuggingFace [**Transformers**](https://github.com/huggingface/transformers) library.
 To fine-tune and evaluate on CLUB, run the following commands:
-=======
+
 # The Catalan Language Understanding Benchmark (CLUB)
 
 ## Fine-tune and evaluate on CLUB
@@ -155,7 +152,6 @@ To fine-tune and evaluate BERTa on the CLUB datasets, run the following commands
 bash setup_venv.sh
 bash finetune_berta_club.sh
 ```
-<<<<<<< HEAD
 The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results.json_ file.
 and the logs in the _finetune_berta_club.log_ file.
 
@@ -193,14 +189,3 @@ Under-resourced Languages? A Comprehensive Assessment for Catalan".
 Findings of ACL 2021 (ACL-IJCNLP 2021)
 
 ```
-=======
-You can easily adapt the scripts to your custom Huggingface tokenizers and models.
-
-# BERTa
-
-See https://huggingface.co/bsc/roberta-base-ca-cased
-
-# Citation
-
-TODO
->>>>>>> bd8cc630ed21f1ca9831f6d13fe2a53811780751
