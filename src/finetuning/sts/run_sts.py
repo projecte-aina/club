@@ -489,7 +489,7 @@ def main():
         types = ['eval', 'predict']
 
         for eval_dataset, type in zip(eval_datasets, types):
-            metrics = trainer.evaluate(eval_dataset=eval_dataset)
+            metrics = trainer.evaluate(eval_dataset=eval_dataset, metric_key_prefix=type)
 
             max_eval_samples = (
                 data_args.max_eval_samples if data_args.max_eval_samples is not None else len(eval_dataset)
@@ -498,7 +498,6 @@ def main():
 
             trainer.log_metrics(type, metrics)
             trainer.save_metrics(type, metrics)
-
 
     if training_args.do_predict:
         logger.info("*** Predict ***")
