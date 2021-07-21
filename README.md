@@ -170,17 +170,14 @@ The official results obtained are:
 
 
 ## How to cite
-
+If you use any of these resources in your work, please cite our latest paper:
 ```bibtex
-
-Armengol-Estapé J., Carrino CP., Rodriguez-Penagos C., 
-
-de Gibert Bonet O., Armentano-Oller C., Gonzalez-Agirre A., Melero M. 
-
-and Villegas M., "Are Multilingual Models the Best Choice for Moderately 
-
-Under-resourced Languages? A Comprehensive Assessment for Catalan". 
-
-Findings of ACL 2021 (ACL-IJCNLP 2021)
-
+@misc{armengolestape2021multilingual,
+      title={Are Multilingual Models the Best Choice for Moderately Under-resourced Languages? A Comprehensive Assessment for Catalan}, 
+      author={Jordi Armengol{-}Estap{\'{e}} and Casimiro Pio Carrino and Carlos Rodriguez-Penagos and Ona de Gibert Bonet and Carme Armentano{-}Oller and Aitor Gonzalez{-}Agirre and Maite Melero and Marta Villegas},
+      year={2021},
+      eprint={2107.07903},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 ```
