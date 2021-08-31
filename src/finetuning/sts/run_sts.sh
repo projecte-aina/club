@@ -15,6 +15,7 @@ python $SCRIPT_DIR/run_sts.py \
   --load_best_model_at_end \
   --metric_for_best_model combined_score \
   --evaluation_strategy epoch \
+  --save_strategy epoch \
   --seed 1 \
   --logging_dir "$SCRIPT_DIR/roberta-base-ca-cased-sts/tb" \
   --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-sts"
