@@ -182,7 +182,7 @@ and the logs in the _finetune_berta_club.log_ file.
 
 ## Results
 
-The official results obtained are:
+Evaluations results obtained running the scripts above:
 
 
 | Task        | NER (F1)      | POS (F1)   | STS (Pearson)   | TC (accuracy) | QA (ViquiQuAD) (F1/EM)  | QA (XQuAD) (F1/EM) | 
