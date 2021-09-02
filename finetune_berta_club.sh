@@ -34,14 +34,14 @@ bash $SCRIPT_DIR/src/finetuning/sts/run_sts.sh 2>&1 | tee -a $SCRIPT_DIR/finetun
   grep  -Po "(?<=predict_combined_score\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/sts/roberta-base-ca-cased-sts/predict_results.json ; } \
   | tee -a $SCRIPT_DIR/results.txt
 
-# Named Entity Recognition
+# Text Classification
 echo "Task: Text Classification"
 bash $SCRIPT_DIR/src/finetuning/tc/run_tc.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
 
 ## Get results
 { echo -e "\nTC";
   echo -n "Accuracy = ";
-  grep  -Po "(?<=predict_accuracy\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/tc/roberta-base-ca-cased-tc/predict_results.json ; } \
+  grep  -Po "(?<=predict_accuracy\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/tc/roberta-base-ca-cased-tc/eval_testset/predict_results.json ; } \
   | tee -a $SCRIPT_DIR/results.txt
 
 
