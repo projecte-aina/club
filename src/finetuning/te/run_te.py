@@ -233,7 +233,7 @@ def main():
     elif data_args.dataset_name:
         # Downloading and loading a dataset from the hub.
         datasets = load_dataset(data_args.dataset_name, 
-                                use_auth_token='JEEnNcdBihpJMNOJSTFmKhASKvKNbuYkpWuzqNAIYqWQKzFXlwLogdirmJbYUQNUtvXodjeEdmvgUYGaPuqPEpZOiYBLGITyGVZICTvTPpuLQSlaOlSycgPJAZKkIoQX')
+                                use_auth_token=True)
     else:
         # Loading a dataset from your local files.
         # CSV/JSON training and evaluation files are needed.
@@ -465,7 +465,7 @@ def main():
 
         # Loop to handle MNLI double evaluation (matched, mis-matched)
         tasks = [data_args.task_name]
-        eval_datasets = [eval_dataset]
+        eval_datasets = [eval_dataset, predict_dataset]
         if data_args.task_name == "mnli":
             tasks.append("mnli-mm")
             eval_datasets.append(datasets["validation_mismatched"])
