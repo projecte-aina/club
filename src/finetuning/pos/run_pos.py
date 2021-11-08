@@ -278,7 +278,6 @@ def main():
         label_list = get_label_list(datasets["train"][label_column_name])
         label_to_id = {l: i for i, l in enumerate(label_list)}
     num_labels = len(label_list)
-
     # Load pretrained model and tokenizer
     #
     # Distributed training:

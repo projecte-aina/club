@@ -18,5 +18,5 @@ python $SCRIPT_DIR/run_pos.py \
   --evaluation_strategy epoch \
   --save_strategy epoch \
   --seed 1 \
-  --logging_dir "$SCRIPT_DIR/roberta-base-ca-cased-pos/tb" \
-  --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-pos"
+  --logging_dir "$SCRIPT_DIR/test-roberta-base-ca-cased-pos/tb" \
+  --output_dir "$SCRIPT_DIR/test-roberta-base-ca-cased-pos"
