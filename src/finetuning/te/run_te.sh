@@ -17,6 +17,6 @@ python $SCRIPT_DIR/run_te.py \
   --evaluation_strategy "epoch" \
   --save_strategy "epoch" \
   --seed 1 \
-  --logging_dir "$SCRIPT_DIR/roberta-base-ca-cased-te/tb" \
-  --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-te"
+  --logging_dir "$SCRIPT_DIR/roberta-base-ca-cased-te-fix/tb" \
+  --output_dir "$SCRIPT_DIR/roberta-base-ca-cased-te-fix"
 
