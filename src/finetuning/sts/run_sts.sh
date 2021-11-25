@@ -3,8 +3,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Finetune on STS
 python $SCRIPT_DIR/run_sts.py \
-  --model_name_or_path "bsc/roberta-base-ca-cased" \
-  --dataset_name "bsc/sts-ca" \
+  --model_name_or_path "PlanTL-GOB-ES/roberta-base-ca" \
+  --dataset_name "projecte-aina/sts-ca" \
   --do_train \
   --do_eval \
   --do_predict \

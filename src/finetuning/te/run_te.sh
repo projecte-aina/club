@@ -3,8 +3,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Finetune on TECA
 python $SCRIPT_DIR/run_te.py \
-  --model_name_or_path "BSC-TeMU/roberta-base-ca" \
-  --dataset_name "BSC-TeMU/teca" \
+  --model_name_or_path "PlanTL-GOB-ES/roberta-base-ca" \
+  --dataset_name "projecte-aina/teca" \
   --do_train \
   --do_eval \
   --do_predict \

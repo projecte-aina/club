@@ -3,8 +3,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 export MAX_LENGTH=512
 python $SCRIPT_DIR/run_ner.py \
-  --model_name_or_path "bsc/roberta-base-ca-cased" \
-  --dataset_name "bsc/ancora-ca-ner" \
+  --model_name_or_path "PlanTL-GOB-ES/roberta-base-ca" \
+  --dataset_name "projecte-aina/ancora-ca-ner" \
   --do_train \
   --do_eval \
   --do_predict \

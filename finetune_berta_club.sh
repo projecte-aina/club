@@ -14,6 +14,7 @@ bash $SCRIPT_DIR/src/finetuning/pos/run_pos.sh 2>&1 | tee -a $SCRIPT_DIR/finetun
   grep  -Po "(?<=predict_f1\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/pos/roberta-base-ca-cased-pos/predict_results.json ; } \
   | tee  $SCRIPT_DIR/results.txt
 
+
 # Named Entity Recognition
 echo "Task: Named Entity Recognition"
 bash $SCRIPT_DIR/src/finetuning/ner/run_ner.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
@@ -23,7 +24,8 @@ bash $SCRIPT_DIR/src/finetuning/ner/run_ner.sh 2>&1 | tee -a $SCRIPT_DIR/finetun
   echo -n "F1 = ";
   grep  -Po "(?<=predict_f1\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/ner/roberta-base-ca-cased-ner/predict_results.json ; } \
   | tee -a $SCRIPT_DIR/results.txt
-#
+
+
 # Semantic Textual Similarity
 echo "Task: Semantic Textual Similarity"
 bash $SCRIPT_DIR/src/finetuning/sts/run_sts.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
@@ -34,6 +36,7 @@ bash $SCRIPT_DIR/src/finetuning/sts/run_sts.sh 2>&1 | tee -a $SCRIPT_DIR/finetun
   grep  -Po "(?<=predict_combined_score\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/sts/roberta-base-ca-cased-sts/predict_results.json ; } \
   | tee -a $SCRIPT_DIR/results.txt
 
+
 # Text Classification
 echo "Task: Text Classification"
 bash $SCRIPT_DIR/src/finetuning/tc/run_tc.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
@@ -42,6 +45,17 @@ bash $SCRIPT_DIR/src/finetuning/tc/run_tc.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_
 { echo -e "\nTC";
   echo -n "Accuracy = ";
   grep  -Po "(?<=predict_accuracy\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/tc/roberta-base-ca-cased-tc/eval_testset/predict_results.json ; } \
+  | tee -a $SCRIPT_DIR/results.txt
+
+
+# Textual Entailment
+echo "Task: Textual Entailment"
+bash $SCRIPT_DIR/src/finetuning/te/run_te.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_berta_club.log
+
+## Get results
+{ echo -e "\nTE";
+  echo -n "Accuracy = ";
+  grep  -Po "(?<=predict_accuracy\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/tc/roberta-base-ca-cased-te/predict_results.json ; } \
   | tee -a $SCRIPT_DIR/results.txt
 
 
@@ -57,7 +71,7 @@ bash $SCRIPT_DIR/src/finetuning/qa/run_qa.sh 2>&1 | tee -a $SCRIPT_DIR/finetune_
   | tee -a $SCRIPT_DIR/results.txt
 
 { echo -e "\nQA";
-  echo -e "ViquiQuAD";
+  echo -e "xquad-ca";
   echo -n "F1 = ";
   grep  -Po "(?<=f1\": )[0-9]\.[0-9]+" $SCRIPT_DIR/src/finetuning/qa/roberta-base-ca-cased-qa/xquad-ca/predict_results.json ; } \
   | tee -a $SCRIPT_DIR/results.txt

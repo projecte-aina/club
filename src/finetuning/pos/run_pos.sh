@@ -3,7 +3,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 export MAX_LENGTH=512
 python $SCRIPT_DIR/run_pos.py \
-  --model_name_or_path "bsc/roberta-base-ca-cased" \
+  --model_name_or_path "PlanTL-GOB-ES/roberta-base-ca" \
   --tag_name "upos" \
   --dataset_name "universal_dependencies" \
   --dataset_config_name "ca_ancora" \

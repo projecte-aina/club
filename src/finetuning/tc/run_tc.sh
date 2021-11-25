@@ -3,8 +3,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Finetune on Text Classification
 python $SCRIPT_DIR/run_tc.py \
-  --model_name_or_path "bsc/roberta-base-ca-cased" \
-  --dataset_name "bsc/tecla" \
+  --model_name_or_path "PlanTL-GOB-ES/roberta-base-ca-cased" \
+  --dataset_name "projecte-aina/tecla" \
   --do_train \
   --do_eval \
   --do_predict \

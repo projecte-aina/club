@@ -3,8 +3,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Train and test on ViquiQuAD
 python $SCRIPT_DIR/run_qa.py \
-  --model_name_or_path "bsc/roberta-base-ca-cased" \
-  --dataset_name "bsc/viquiquad" \
+  --model_name_or_path "PlanTL-GOB-ES/roberta-base-ca" \
+  --dataset_name "projecte-aina/viquiquad" \
   --do_train \
   --do_eval \
   --do_predict \
@@ -23,7 +23,7 @@ python $SCRIPT_DIR/run_qa.py \
 # Test the previous fine-tuned model on XQuAD
 python $SCRIPT_DIR/run_qa.py \
   --model_name_or_path "$SCRIPT_DIR/roberta-base-ca-cased-qa/viquiquad" \
-  --dataset_name "bsc/xquad-ca" \
+  --dataset_name "projecte-aina/xquad-ca" \
   --do_predict \
   --per_device_train_batch_size 8 \
   --max_seq_length 512 \
