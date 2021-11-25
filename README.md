@@ -1,29 +1,5 @@
 # BERTa (RoBERTa-based Catalan language model) and Catalan Language Understanding Benchmark (CLUB)
 
-## How to cite
-If you use any of these resources (datasets or models) in your work, please cite our latest paper:
-```bibtex
-@inproceedings{armengol-estape-etal-2021-multilingual,
-    title = "Are Multilingual Models the Best Choice for Moderately Under-resourced Languages? {A} Comprehensive Assessment for {C}atalan",
-    author = "Armengol-Estap{\'e}, Jordi  and
-      Carrino, Casimiro Pio  and
-      Rodriguez-Penagos, Carlos  and
-      de Gibert Bonet, Ona  and
-      Armentano-Oller, Carme  and
-      Gonzalez-Agirre, Aitor  and
-      Melero, Maite  and
-      Villegas, Marta",
-    booktitle = "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
-    month = aug,
-    year = "2021",
-    address = "Online",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2021.findings-acl.437",
-    doi = "10.18653/v1/2021.findings-acl.437",
-    pages = "4933--4946",
-}
-```
-
 
 ## Model description
 
@@ -33,7 +9,7 @@ It is based on the [RoBERTA](https://github.com/pytorch/fairseq/tree/master/exam
 
 and has been trained on a medium-size corpus collected from publicly available corpora and crawlers.
 
-The pretrained model is available on the HuggingFace model hub under the name: **https://huggingface.co/bsc/roberta-base-ca-cased** 
+The pretrained model is available on the HuggingFace model hub under the name: **https://huggingface.co/PlanTL-GOB-ES/roberta-base-ca-cased** 
 ## Training corpora and preprocessing
 
 The training corpus consists of several corpora gathered from web crawling and public corpora.
@@ -103,7 +79,7 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
    
     - Splits info:
          - train: 13,123 examples 
-         - dev: 1,709 examples
+         - validation: 1,709 examples
          - test: 1,846 examples
 
     - dataset card: https://huggingface.co/datasets/universal_dependencies
@@ -114,10 +90,10 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
     
     - Splits info:
          - train: 10,628 examples 
-         - dev: 1,427 examples
+         - validation: 1,427 examples
          - test: 1,526 examples
        
-    - dataset card: https://huggingface.co/datasets/bsc/ancora-ca-ner
+    - dataset card: https://huggingface.co/datasets/projecte-aina/ancora-ca-ner
     
     - data source: https://zenodo.org/record/4762031#.YKaFjqGxWUk)
    
@@ -125,10 +101,10 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
     
     - Splits info:
          - train: 110,203  examples 
-         - dev: 13,786 examples
+         - validation: 13,786 examples
          - test: 13,786 examples
        
-    - dataset card: https://huggingface.co/datasets/bsc/tecla
+    - dataset card: https://huggingface.co/datasets/projecte-aina/tecla
     
     - data source: **[TeCla](https://doi.org/10.5281/zenodo.4627197)**: consisting of 137k news pieces from the Catalan News Agency ([ACN](https://www.acn.cat/)) corpus
 
@@ -136,10 +112,10 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
     
     - Splits info:
          - train: 2,073 examples
-         - dev: 500 examples
+         - validation: 500 examples
          - test: 500 examples
        
-    - dataset card: https://huggingface.co/datasets/bsc/sts-ca
+    - dataset card: https://huggingface.co/datasets/projecte-aina/sts-ca
     
     - data source: https://doi.org/10.5281/zenodo.4529183
    
@@ -147,10 +123,10 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
     
     - Splits info:
          - train: 11,255 examples 
-         - dev: 1,492 examples
+         - validation: 1,492 examples
          - test: 1,429 examples
        
-    - dataset card: https://huggingface.co/datasets/bsc/viquiquad
+    - dataset card: https://huggingface.co/datasets/projecte-aina
       
     - data source: https://doi.org/10.5281/zenodo.4562344
    
@@ -159,14 +135,28 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
     - Splits info:
          - test: 1,190 examples
    
-   - dataset card: https://huggingface.co/datasets/bsc/xquad-ca
+   - dataset card: https://huggingface.co/datasets/projecte-aina/xquad-ca
      
    - data source: https://doi.org/10.5281/zenodo.4526223
+
+7. TECA (Textual Entailment)
+
+    - Splits info:
+         - train: 16,930 examples
+         - validation: 2116
+         - test: 2117
+   
+   - dataset card: https://huggingface.co/datasets/projecte-aina/teca
+     
+   - data source: https://zenodo.org/record10.5281/zenodo.4593271.
+    
 
 
 ## Fine-tuning and evaluation
 The fine-tuning scripts for the downstream tasks are based on the HuggingFace [**Transformers**](https://github.com/huggingface/transformers) library.
-To fine-tune and evaluate on CLUB, run the following commands:
+For each model we used the same fine-tuning setting across tasks, consisting of 10 training epochs, with an effective
+batch size of 32 instances, a max input length of 512 tokens (128 tokens in the case of Textual Entailment though) and a learning rate of 5e−5. The rest of the hyperparameters are set to the default values in Huggingface Transformers scripts. We then select the best checkpoint as the one that maximised the task-specific metric on the
+corresponding validation set, and finally evaluate it on the test set.
 
 # The Catalan Language Understanding Benchmark (CLUB)
 
@@ -185,12 +175,36 @@ and the logs in the _finetune_berta_club.log_ file.
 Evaluations results obtained running the scripts above:
 
 
-| Task        | NER (F1)      | POS (F1)   | STS (Pearson)   | TC (accuracy) | QA (ViquiQuAD) (F1/EM)  | QA (XQuAD) (F1/EM) | 
-| ------------|:-------------:| -----:|:------|:-------|:------|:----|
-| BERTa       | **89.63** | **98.93** | **81.20** | **74.04** | **86.99/73.25** | **67.81/49.43** |
-| mBERT       | 86.38 | 98.82 | 76.34 | 70.56 | 86.97/72.22 | 67.15/46.51 |
-| XLM-RoBERTa | 87.66 | 98.89 | 75.40 | 71.68 | 85.50/70.47 | 67.10/46.42 |
-| WikiBERT-ca | 77.66 | 97.60 | 77.18 | 73.22 | 85.45/70.75 | 65.21/36.60 |
+| Task        | NER (F1)      | POS (F1)   | STS (Pearson)   | TC (accuracy) | QA (ViquiQuAD) (F1/EM)  | QA (XQuAD) (F1/EM) | TE (TECA) (accuracy) | 
+| ------------|:-------------:| -----:|:------|:-------|:------|:----|:----|
+| BERTa       | **89.63** | **98.93** | **81.20** | **74.04** | **86.99/73.25** | **67.81/49.43** | x |
+| mBERT       | 86.38 | 98.82 | 76.34 | 70.56 | 86.97/72.22 | 67.15/46.51 | x |
+| XLM-RoBERTa | 87.66 | 98.89 | 75.40 | 71.68 | 85.50/70.47 | 67.10/46.42 | x |
+| WikiBERT-ca | 77.66 | 97.60 | 77.18 | 73.22 | 85.45/70.75 | 65.21/36.60 | x |
+
+## How to cite
+If you use any of these resources (datasets or models) in your work, please cite our latest paper:
+```bibtex
+@inproceedings{armengol-estape-etal-2021-multilingual,
+    title = "Are Multilingual Models the Best Choice for Moderately Under-resourced Languages? {A} Comprehensive Assessment for {C}atalan",
+    author = "Armengol-Estap{\'e}, Jordi  and
+      Carrino, Casimiro Pio  and
+      Rodriguez-Penagos, Carlos  and
+      de Gibert Bonet, Ona  and
+      Armentano-Oller, Carme  and
+      Gonzalez-Agirre, Aitor  and
+      Melero, Maite  and
+      Villegas, Marta",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-acl.437",
+    doi = "10.18653/v1/2021.findings-acl.437",
+    pages = "4933--4946",
+}
+```
 
 
 
