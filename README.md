@@ -167,8 +167,8 @@ To fine-tune and evaluate BERTa (roberta-base-ca-cased) on the CLUB benchamark, 
 bash setup_venv.sh
 bash run_club.sh "PlanTL-GOB-ES/roberta-base-ca"
 ```
-The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results.json_ file.
-and the logs in the _run_club.log_ file.
+The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results-roberta-base-ca.json_ file.
+and the logs in the _run_club-roberta-base-ca.log_ file.
 
 ## Results
 
