@@ -1,16 +1,7 @@
-# BERTa (RoBERTa-based Catalan language model) and Catalan Language Understanding Benchmark (CLUB)
 
-## Model description
+# CLUB: Catalan Language Understanding Benchmark
 
-BERTa is a transformer-based masked language model for the Catalan language, based on the [RoBERTA](https://github.com/pytorch/fairseq/tree/master/examples/roberta) base model 
-
-Pretrained model: https://huggingface.co/PlanTL-GOB-ES/roberta-base-ca-cased
-Training corpora: https://doi.org/10.5281/zenodo.4519348
-
-
-## Downstream tasks
-
-## CLUB: Catalan Language Understanding Benchmark
+## Tasks and datasets
 
 The CLUB benchmark consists of 5 tasks, that are Part-of-Speech Tagging (POS), Named Entity Recognition (NER), 
 Text Classification (TC), Semantic Textual Similarity (STS) and Question Answering (QA).
@@ -90,11 +81,16 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
      
    - data source: https://zenodo.org/record10.5281/zenodo.4593271.
     
+## BERTa
 
-# The Catalan Language Understanding Benchmark (CLUB)
+BERTa is a transformer-based masked language model for the Catalan language, based on the [RoBERTA](https://github.com/pytorch/fairseq/tree/master/examples/roberta) base model 
+
+Pretrained model: https://huggingface.co/PlanTL-GOB-ES/roberta-base-ca-cased
+Training corpora: https://doi.org/10.5281/zenodo.4519348
 
 ## Fine-tune and evaluate on CLUB
-To fine-tune and evaluate BERTa (roberta-base-ca-cased) on the CLUB benchamark, run the following commands:
+
+To fine-tune and evaluate your model on the CLUB benchamark, run the following commands:
 
 ```
 bash setup_venv.sh
@@ -102,6 +98,14 @@ bash run_club.sh "PlanTL-GOB-ES/roberta-base-ca"
 ```
 The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results-roberta-base-ca.json_ file.
 and the logs in the _run_club-roberta-base-ca.log_ file.
+
+
+## Evaluation
+
+For each model we used the same fine-tuning setting across tasks, consisting of 10 training epochs, with an effective
+batch size of 32 instances, a max input length of 512 tokens (128 tokens in the case of Textual Entailment though) and a learning rate of 5e−5. The rest of the hyperparameters are set to the default values in Huggingface Transformers scripts. We then select the best checkpoint as the one that maximised the task-specific metric on the
+corresponding validation set, and finally evaluate it on the test set.
+
 
 ## Results
 
