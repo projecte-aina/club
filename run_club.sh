@@ -3,7 +3,8 @@
 # Make sure 4 GPUs are available to reach the batch size of 32
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-model_name=$1
+source ${SCRIPT_DIR}/venv/bin/activate
+model_name="$1"
 
 echo "Start fine-tuning and evaluation on CLUB tasks"
 echo "Using model: ${model_name}"

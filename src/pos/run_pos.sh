@@ -20,5 +20,5 @@ python $SCRIPT_DIR/run_pos.py \
   --evaluation_strategy epoch \
   --save_strategy epoch \
   --seed 1 \
-  --logging_dir "$SCRIPT_DIR/test-${model_name}-pos/tb" \
-  --output_dir "$SCRIPT_DIR/test-${model_name}-pos"
+  --logging_dir "$SCRIPT_DIR/${model_name}-pos/tb" \
+  --output_dir "$SCRIPT_DIR/${model_name}-pos"
