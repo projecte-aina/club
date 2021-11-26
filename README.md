@@ -165,7 +165,7 @@ To fine-tune and evaluate BERTa on the CLUB datasets, run the following commands
 
 ```
 bash setup_venv.sh
-bash finetune_berta_club.sh
+bash run_club.sh "PlanTL-GOB-ES/roberta-base-ca"
 ```
 The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results.json_ file.
 and the logs in the _finetune_berta_club.log_ file.
