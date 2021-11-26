@@ -94,13 +94,13 @@ To fine-tune and evaluate your model on the CLUB benchamark, run the following c
 
 ```
 bash setup_venv.sh
-bash run_club.sh "PlanTL-GOB-ES/roberta-base-ca"
+bash run_club.sh <model_name_on_HF>
 ```
 The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results-roberta-base-ca.json_ file.
 and the logs in the _run_club-roberta-base-ca.log_ file.
 
 
-## Evaluation
+## Fine-tuning and evaluation
 
 For each model we used the same fine-tuning setting across tasks, consisting of 10 training epochs, with an effective
 batch size of 32 instances, a max input length of 512 tokens (128 tokens in the case of Textual Entailment though) and a learning rate of 5e−5. The rest of the hyperparameters are set to the default values in Huggingface Transformers scripts. We then select the best checkpoint as the one that maximised the task-specific metric on the
