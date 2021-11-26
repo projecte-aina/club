@@ -96,8 +96,8 @@ To fine-tune and evaluate your model on the CLUB benchamark, run the following c
 bash setup_venv.sh
 bash run_club.sh <model_name_on_HF>
 ```
-The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results-roberta-base-ca.json_ file.
-and the logs in the _run_club-roberta-base-ca.log_ file.
+The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results-model_name_on_HF.json_ file.
+and the logs in the _run_club-model_name_on_HF.log_ file.
 
 
 ## Fine-tuning and evaluation
@@ -109,7 +109,7 @@ corresponding validation set, and finally evaluate it on the test set.
 
 ## Results
 
-Evaluations results obtained running the scripts above:
+Evaluations results obtained running the scripts above with the `<model_name_on_HF>` set to _PlanTL-GOB-ES/roberta-base-ca_:
 
 
 | Model        | NER (F1)      | POS (F1)   | STS (Pearson)   | TC (accuracy) | QA (ViquiQuAD) (F1/EM)  | QA (XQuAD) (F1/EM) | TE (TECA) (accuracy) | 
