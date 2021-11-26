@@ -91,13 +91,6 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
    - data source: https://zenodo.org/record10.5281/zenodo.4593271.
     
 
-
-## Fine-tuning and evaluation
-The fine-tuning scripts for the downstream tasks are based on the HuggingFace [**Transformers**](https://github.com/huggingface/transformers) library.
-For each model we used the same fine-tuning setting across tasks, consisting of 10 training epochs, with an effective
-batch size of 32 instances, a max input length of 512 tokens (128 tokens in the case of Textual Entailment though) and a learning rate of 5e−5. The rest of the hyperparameters are set to the default values in Huggingface Transformers scripts. We then select the best checkpoint as the one that maximised the task-specific metric on the
-corresponding validation set, and finally evaluate it on the test set.
-
 # The Catalan Language Understanding Benchmark (CLUB)
 
 ## Fine-tune and evaluate on CLUB
