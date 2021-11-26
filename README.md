@@ -175,7 +175,7 @@ and the logs in the _finetune_berta_club.log_ file.
 Evaluations results obtained running the scripts above:
 
 
-| Task        | NER (F1)      | POS (F1)   | STS (Pearson)   | TC (accuracy) | QA (ViquiQuAD) (F1/EM)  | QA (XQuAD) (F1/EM) | TE (TECA) (accuracy) | 
+| Model        | NER (F1)      | POS (F1)   | STS (Pearson)   | TC (accuracy) | QA (ViquiQuAD) (F1/EM)  | QA (XQuAD) (F1/EM) | TE (TECA) (accuracy) | 
 | ------------|:-------------:| -----:|:------|:-------|:------|:----|:----|
 | BERTa       | **89.63** | **98.93** | **81.20** | **74.04** | **86.99/73.25** | **67.81/49.43** | x |
 | mBERT       | 86.38 | 98.82 | 76.34 | 70.56 | 86.97/72.22 | 67.15/46.51 | x |
