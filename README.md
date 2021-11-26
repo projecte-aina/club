@@ -161,14 +161,14 @@ corresponding validation set, and finally evaluate it on the test set.
 # The Catalan Language Understanding Benchmark (CLUB)
 
 ## Fine-tune and evaluate on CLUB
-To fine-tune and evaluate BERTa on the CLUB datasets, run the following commands:
+To fine-tune and evaluate BERTa (roberta-base-ca-cased) on the CLUB benchamark, run the following commands:
 
 ```
 bash setup_venv.sh
 bash run_club.sh "PlanTL-GOB-ES/roberta-base-ca"
 ```
 The commands above will run fine-tuning and evaluation on CLUB and the results will be shown in the _results.json_ file.
-and the logs in the _finetune_berta_club.log_ file.
+and the logs in the _run_club.log_ file.
 
 ## Results
 
