@@ -1,72 +1,12 @@
 # BERTa (RoBERTa-based Catalan language model) and Catalan Language Understanding Benchmark (CLUB)
 
-
 ## Model description
 
-BERTa is a transformer-based masked language model for the Catalan language. 
+BERTa is a transformer-based masked language model for the Catalan language, based on the [RoBERTA](https://github.com/pytorch/fairseq/tree/master/examples/roberta) base model 
 
-It is based on the [RoBERTA](https://github.com/pytorch/fairseq/tree/master/examples/roberta) base model 
+Pretrained model: https://huggingface.co/PlanTL-GOB-ES/roberta-base-ca-cased
+Training corpora: https://doi.org/10.5281/zenodo.4519348
 
-and has been trained on a medium-size corpus collected from publicly available corpora and crawlers.
-
-The pretrained model is available on the HuggingFace model hub under the name: **https://huggingface.co/PlanTL-GOB-ES/roberta-base-ca-cased** 
-## Training corpora and preprocessing
-
-The training corpus consists of several corpora gathered from web crawling and public corpora.
-
-The publicly available corpora are:
-
- 1. the Catalan part of the [DOGC](http://opus.nlpl.eu/DOGC-v2.php) corpus, a set of documents from the Official Gazette of the Catalan Government
-
-    
-
- 2. the [Catalan Open Subtitles](http://opus.nlpl.eu/download.php?f=OpenSubtitles/v2018/mono/OpenSubtitles.raw.ca.gz), a collection of translated movie subtitles
-
-    
-
- 3. the non-shuffled version of the Catalan part of the [OSCAR](https://traces1.inria.fr/oscar/) corpus \\\\cite{suarez2019asynchronous}, 
-
-    a collection of monolingual corpora, filtered from [Common Crawl](https://commoncrawl.org/about/)
-
-    
-
- 4. The [CaWac](http://nlp.ffzg.hr/resources/corpora/cawac/) corpus, a web corpus of Catalan built from the .cat top-level-domain in late 2013
-
-    the non-deduplicated version
-
- 5. the [Catalan Wikipedia articles](https://ftp.acc.umu.se/mirror/wikimedia.org/dumps/cawiki/20200801/) downloaded on 18-08-2020.
-
-The crawled corpora are:
-
- 6. The Catalan General Crawling, obtained by crawling the 500 most popular .cat and .ad domains
-
- 7. the Catalan Government Crawling, obtained by crawling the .gencat domain and subdomains, belonging to the Catalan Government
-
-    
-
- 8. the ACN corpus with 220k news items from March 2015 until October 2020, crawled from the [Catalan News Agency](https://www.acn.cat/)
-
-To obtain a high-quality training corpus, each corpus have preprocessed with a pipeline of operations, including among the others,
-
-sentence splitting, language detection, filtering of bad-formed sentences and deduplication of repetitive contents.
-
-During the process, we keep document boundaries are kept. 
-
-Finally, the corpora are concatenated and further global deduplication among the corpora is applied.
-
-The final training corpus consists of about 1,8B tokens.
-
-## Tokenization and pretraining 
-
-The training corpus has been tokenized using a byte version of [Byte-Pair Encoding (BPE)](https://github.com/openai/gpt-2)
-
-used in the original [RoBERTA](https://github.com/pytorch/fairseq/tree/master/examples/roberta) model with a vocabulary size of 52,000 tokens. 
-
-The BERTa pretraining consists of a masked language model training that follows the approach employed for the RoBERTa base model
-
-with the same hyperparameters as in the original work.
-
-The training lasted a total of 48 hours with 16 NVIDIA V100 GPUs of 16GB DDRAM.
 
 ## Downstream tasks
 
