@@ -213,9 +213,7 @@ def main():
     # download the dataset.
     if data_args.dataset_name:
         # Downloading and loading a dataset from the hub.
-        datasets = load_dataset(data_args.dataset_name,
-                                script_version='67de174e3b3b52313679e1d2c7b22ec2c0fcbc24',
-                                use_auth_token=True)
+        datasets = load_dataset(data_args.dataset_name)
     else:
         # Loading a dataset from your local files.
         # CSV/JSON training and evaluation files are needed.
