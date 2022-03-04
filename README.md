@@ -80,6 +80,23 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
    - dataset card: https://huggingface.co/datasets/projecte-aina/teca
      
    - data source: https://zenodo.org/record10.5281/zenodo.4593271.
+
+8. CaSum (text summarization)
+
+    - Splits info:
+         - train: 197,735 examples
+         - validation: 10,000 examples
+         - test: 10,000 examples
+ 
+   
+    - dataset card: https://huggingface.co/datasets/projecte-aina/casum
+   
+9. VilaSum (text summarization)
+
+    - Splits info:
+         - train: 13,843 examples
+   
+   - dataset card: https://huggingface.co/datasets/projecte-aina/vilasum
     
 ## BERTa
 
