@@ -102,7 +102,7 @@ For more information, refer to the _HuggingFace datasets cards_ and _Zenodo_ lin
 
 BERTa is a transformer-based masked language model for the Catalan language, based on the [RoBERTA](https://github.com/pytorch/fairseq/tree/master/examples/roberta) base model 
 
-Pretrained model: https://huggingface.co/PlanTL-GOB-ES/roberta-base-ca-cased
+Pretrained model: https://huggingface.co/PlanTL-GOB-ES/roberta-base-ca <br/>
 Training corpora: https://doi.org/10.5281/zenodo.4519348
 
 ## Fine-tune and evaluate on CLUB
